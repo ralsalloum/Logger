@@ -35,3 +35,9 @@ services:
 
     App\Controller\HomeController:
         arguments: ['@monolog.logger.db']
+
+    App\EventListener\UserGrade:
+        tags:
+            -
+                name: 'doctrine.event_listener'
+                event: 'postPersist'

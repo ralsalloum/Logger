@@ -55,4 +55,35 @@ class User
 
         return $this;
     }
+
+    /**
+     * @return Collection|Rating[]
+     */
+    public function getRateValue(): Collection
+    {
+        return $this->rateValue;
+    }
+
+    public function addRateValue(Rating $rateValue): self
+    {
+        if (!$this->rateValue->contains($rateValue)) {
+            $this->rateValue[] = $rateValue;
+            $rateValue->setUserID($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRateValue(Rating $rateValue): self
+    {
+        if ($this->rateValue->contains($rateValue)) {
+            $this->rateValue->removeElement($rateValue);
+            // set the owning side to null (unless already changed)
+            if ($rateValue->getUserID() === $this) {
+                $rateValue->setUserID(null);
+            }
+        }
+
+        return $this;
+    }
 }
