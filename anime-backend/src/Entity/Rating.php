@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\CommentRepository;
+use App\Repository\RatingRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CommentRepository::class)
+ * @ORM\Entity(repositoryClass=RatingRepository::class)
  */
-class Comment
+class Rating
 {
     /**
      * @ORM\Id
@@ -23,9 +23,9 @@ class Comment
     private $userID;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="integer")
      */
-    private $text;
+    private $rate;
 
     /**
      * @ORM\Column(type="integer")
@@ -49,14 +49,14 @@ class Comment
         return $this;
     }
 
-    public function getText(): ?string
+    public function getRate(): ?int
     {
-        return $this->text;
+        return $this->rate;
     }
 
-    public function setText(string $text): self
+    public function setRate(int $rate): self
     {
-        $this->text = $text;
+        $this->rate = $rate;
 
         return $this;
     }

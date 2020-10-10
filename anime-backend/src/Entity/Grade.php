@@ -18,8 +18,7 @@ class Grade
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="integer")
      */
     private $userID;
 
@@ -33,12 +32,12 @@ class Grade
         return $this->id;
     }
 
-    public function getUserID(): ?User
+    public function getUserID(): ?int
     {
         return $this->userID;
     }
 
-    public function setUserID(User $userID): self
+    public function setUserID(int $userID): self
     {
         $this->userID = $userID;
 
