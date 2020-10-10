@@ -1,5 +1,5 @@
 ### Symfony 5.1.5 project uses the following 
 
-## LoggerInterface `Done`
+## LoggerInterface
 
-## Doctrine Event System `Not yet`
+## Doctrine Event System 
